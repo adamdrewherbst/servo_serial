@@ -12,4 +12,6 @@ https://github.com/pyserial/pyserial#installation
 
 Download the Arduino IDE and use it to upload the .ino file to your board.
 
+Connect the red wire of the servo to the Arduino 5V, the brown wire to GND, and the yellow wire to pin 9.
+
 Go to index.php in your web browser and you should be able to drag and drop the instructions to generate a repeating pattern of motion for the Servo motor.
