@@ -150,7 +150,7 @@ extract($_GET);
 		<h3>Use these instructions to build your program</h3>
 		<ul id="instructions">
 			<li class="draggable ui-state-default motor-speed">
-				<? if($grade > 1) { ?>
+				<? if($grade >= 0) { ?>
 				Set the motor speed to
 				<input type="number" min="10" max="180" value="60">
 				degrees per second (from 10 to 180)
@@ -158,7 +158,7 @@ extract($_GET);
 				<? } ?>
 			</li>
 			<li class="draggable ui-state-default motor-angle">
-				<? if($grade > 1) { ?>
+				<? if($grade >= 0) { ?>
 				Move the motor to angle
 				<input type="number" min="0" max="180" value="0">
 				(from 0 to 180)
@@ -166,7 +166,7 @@ extract($_GET);
 				<? } ?>
 			</li>
 			<li class="draggable ui-state-default motor-delay">
-				<? if($grade > 1) { ?>
+				<? if($grade >= 0) { ?>
 				Pause for
 				<input type="number" min="10" max="10000" value="100">
 				milliseconds (from 10 to 10000)
