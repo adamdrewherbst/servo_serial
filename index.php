@@ -24,7 +24,7 @@ extract($_GET);
 				});
 				var instructions = $('#program li'), program = [];
 				for(var i = 0; i < instructions.length; i++) {
-					var instruction = $(instructions[i]), value = instruction.find('input[type=number]').val();
+					var instruction = $(instructions[i]), value = instruction.find('input').val();
 					if(instruction.hasClass('motor-speed')) {
 						program.push(['speed', value]);
 					} else if(instruction.hasClass('motor-angle')) {
@@ -143,6 +143,13 @@ extract($_GET);
 			.draggable input {
 				user-select: auto;
 			}
+			.draggable input[type=range] {
+				width: 50%;
+			}
+			.draggable .slider-label {
+				font-weight: bold;
+				margin: 0 5%;
+			}
 		</style>
 	</head>
 	<body>
@@ -150,27 +157,30 @@ extract($_GET);
 		<h3>Use these instructions to build your program</h3>
 		<ul id="instructions">
 			<li class="draggable ui-state-default motor-speed">
-				<? if($grade >= 0) { ?>
+				<? if($grade > 1) { ?>
 				Set the motor speed to
 				<input type="number" min="10" max="180" value="60">
 				degrees per second (from 10 to 180)
 				<? } else { ?>
+				<span class="slider-label">SET SPEED</span> <input type="range" min="10" max="180">
 				<? } ?>
 			</li>
 			<li class="draggable ui-state-default motor-angle">
-				<? if($grade >= 0) { ?>
+				<? if($grade > 1) { ?>
 				Move the motor to angle
 				<input type="number" min="0" max="180" value="0">
 				(from 0 to 180)
 				<? } else { ?>
+				<span class="slider-label">SET ANGLE</span> <input type="range" min="0" max="180">
 				<? } ?>
 			</li>
 			<li class="draggable ui-state-default motor-delay">
-				<? if($grade >= 0) { ?>
+				<? if($grade > 1) { ?>
 				Pause for
 				<input type="number" min="10" max="10000" value="100">
 				milliseconds (from 10 to 10000)
 				<? } else { ?>
+				<span class="slider-label">PAUSE</span> <input type="range" min="0" max="1000">
 				<? } ?>
 			</li>
 		</ul>
