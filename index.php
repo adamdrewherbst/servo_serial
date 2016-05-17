@@ -11,6 +11,7 @@ extract($_GET);
 
 			function runProgram() {
 				$('#ready-light').hide();
+				$('#overlay').show();
 				$('input[type=number]').each(function() {
 					var $this = $(this), val = parseFloat($this.val()), min = $this.attr('min'), max = $this.attr('max');
 					if(min) {
@@ -50,6 +51,7 @@ extract($_GET);
 					},
 					complete: function() {
 						$('#ready-light').show();
+						$('#overlay').hide();
 					},
 				});
 			}
@@ -75,6 +77,7 @@ extract($_GET);
 		</script>
 
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<style>
 			ul {
 				list-style-type: none;
@@ -150,6 +153,28 @@ extract($_GET);
 				font-weight: bold;
 				margin: 0 5%;
 			}
+			#overlay {
+    				position: fixed;
+    				top: 0;
+    				left: 0;
+    				width: 100%;
+    				height: 100%;
+    				text-align: center;
+    				background-color: rgba(0, 0, 0, 0.5);
+    				display: none;
+			}
+			#overlay-align {
+    				display: inline-block;
+    				vertical-align: middle;
+    				width: 0;
+    				height: 100%;
+			}
+			#overlay-spinner {
+    				color: #ffffff;
+    				display: inline-block;
+    				vertical-align: middle;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -194,6 +219,11 @@ extract($_GET);
 		</h3>
 		<ul id="program">
 		</ul>
+		</div>
+
+		<div id="overlay">
+		    <div id="overlay-align">
+		    </div><i id="overlay-spinner" class="fa fa-spinner fa-spin fa-5x"></i>
 		</div>
 	</body>
 </html>
